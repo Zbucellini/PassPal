@@ -1,0 +1,26 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual environments ---
+venv/
+.venv/
+env/
+
+# --- Flask ---
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
+# --- Secrets ---
+.env
+*.env
+
+# --- IDE ---
+.vscode/
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
