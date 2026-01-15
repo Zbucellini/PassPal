@@ -1,4 +1,3 @@
-````md
 # PassPal 🔐
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/)
@@ -145,7 +144,3 @@ PassPal - https://github.com/<your-username>/PassPal
 
 Feel free to test the project as part of academic work!
 
----
-
-<p align="center">README template styled similarly to common open-source project formats and adapted for PassPal.</p>
-````
