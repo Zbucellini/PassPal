@@ -7,7 +7,6 @@
 
 
 ## Description 📝
-PassPal is a web-based password manager created as a **university project**. It provides a clean interface for storing and managing credentials, generating strong passwords, and exporting saved entries.
 
 The project focuses on practicing core web-app concepts such as authentication, routing, templating, and database persistence using Python and Flask.
 
