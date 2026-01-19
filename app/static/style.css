@@ -1,3 +1,64 @@
+/* Cyber Theme - Color Variables */
+:root {
+  --cyber-dark: #0a0e27;
+  --cyber-darker: #050714;
+  --cyber-blue: #00d4ff;
+  --cyber-purple: #b537f2;
+  --cyber-pink: #ff2a6d;
+  --cyber-green: #05ffa1;
+  --cyber-bg: #0f1729;
+  --cyber-card: #1a1f3a;
+  --cyber-border: #2a3150;
+  --cyber-text: #e0e7ff;
+  --cyber-muted: #8b92b0;
+}
+
+/* Body & Background */
+body {
+  background: linear-gradient(135deg, var(--cyber-darker) 0%, var(--cyber-dark) 50%, #0d1b2a 100%) !important;
+  color: var(--cyber-text);
+  min-height: 100vh;
+  position: relative;
+}
+
+body.bg-light {
+  background: linear-gradient(135deg, var(--cyber-darker) 0%, var(--cyber-dark) 50%, #0d1b2a 100%) !important;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 212, 255, 0.03) 2px,
+      rgba(0, 212, 255, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+header {
+  background: rgba(10, 14, 39, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--cyber-blue) !important;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  position: relative;
+  z-index: 1000;
+}
+
 .app-brand-nouser {
   font-size: 42px;
   font-weight: 900;
@@ -5,14 +66,114 @@
   vertical-align: middle;
   margin: auto;
   padding-top: 20px;
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.app-brand-nouser i {
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.8));
+  animation: pulse-icon 2s ease-in-out infinite;
 }
 
 .app-brand-user {
   font-size: 36px;
   font-weight: 900;
   vertical-align: middle;
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
+.app-brand-user i {
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.7));
+  animation: pulse-icon 2s ease-in-out infinite;
+}
+
+.app-brand-user i:hover,
+.app-brand-nouser i:hover {
+  filter: drop-shadow(0 0 25px rgba(181, 55, 242, 0.9));
+  transform: scale(1.1) rotate(5deg);
+}
+
+@keyframes pulse-icon {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(0, 212, 255, 1));
+  }
+}
+
+/* Brand Icon Styling */
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6));
+  transition: all 0.3s ease;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.app-brand-user .brand-icon {
+  width: 42px;
+  height: 42px;
+}
+
+.brand-icon:hover {
+  filter: drop-shadow(0 0 25px rgba(181, 55, 242, 0.8));
+  transform: scale(1.1) rotate(5deg);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.9));
+  }
+}
+
+/* Navigation */
+.nav-link {
+  font-size: large;
+  font-weight: 600;
+  color: var(--cyber-text) !important;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--cyber-blue) !important;
+  border-color: var(--cyber-blue);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(181, 55, 242, 0.2)) !important;
+  border-color: var(--cyber-purple) !important;
+  box-shadow: 0 0 20px rgba(181, 55, 242, 0.3);
+}
+
+/* Alerts */
 .alert {
   position: absolute;
   top: 0;
@@ -20,6 +181,22 @@
   width: auto;
   opacity: 1;
   transition: all 0.5s;
+  background: var(--cyber-card);
+  border: 1px solid;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.alert-success {
+  border-color: var(--cyber-green) !important;
+  color: var(--cyber-green);
+  box-shadow: 0 0 20px rgba(5, 255, 161, 0.3);
+}
+
+.alert-danger {
+  border-color: var(--cyber-pink) !important;
+  color: var(--cyber-pink);
+  box-shadow: 0 0 20px rgba(255, 42, 109, 0.3);
 }
 
 #alert-hide {
@@ -30,23 +207,7 @@
   font-size: 24px;
 }
 
-.signin-text,
-.signup-text,
-.index-text,
-.add-edit-text,
-.profile-text,
-.generator-text,
-.export-text {
-  text-align: center;
-  margin: auto;
-  max-width: 600px;
-}
-
-.nav-link {
-  font-size: large;
-  font-weight: 600;
-}
-
+/* Forms */
 .form-signin,
 .form-signup,
 .form-add,
@@ -55,7 +216,70 @@
 .form-export {
   margin: auto;
   max-width: 600px;
-  padding: 20px 20px;
+  padding: 30px;
+  background: rgba(26, 31, 58, 0.8) !important;
+  border-radius: 15px;
+  border: 1px solid var(--cyber-border);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.form-label {
+  color: var(--cyber-text) !important;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Ensure all labels are visible */
+label {
+  color: var(--cyber-text) !important;
+}
+
+/* Ensure all headings in forms are visible */
+.form-signin h1,
+.form-signup h1,
+.form-add h1,
+.form-profile h1,
+.form-profile h2,
+.form-profile h3,
+.form-generator h1,
+.form-export h1 {
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  background: rgba(10, 14, 39, 0.8) !important;
+  border: 1px solid var(--cyber-border) !important;
+  color: var(--cyber-text) !important;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  background: rgba(10, 14, 39, 0.9) !important;
+  border-color: var(--cyber-blue) !important;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3) !important;
+  color: var(--cyber-text) !important;
+}
+
+.form-control::placeholder {
+  color: var(--cyber-muted) !important;
+}
+
+textarea.form-control {
+  background: rgba(10, 14, 39, 0.8) !important;
+  border: 1px solid var(--cyber-border) !important;
+  color: var(--cyber-text) !important;
+}
+
+textarea.form-control:focus {
+  background: rgba(10, 14, 39, 0.9) !important;
+  border-color: var(--cyber-blue) !important;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3) !important;
 }
 
 .form-search {
@@ -63,39 +287,123 @@
   padding-right: 7px;
 }
 
-.content {
-  padding-left: 12px;
-  padding-right: 12px;
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple)) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  padding: 10px 30px;
 }
 
-.dropdown-menu {
-  min-width: 160px;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
 }
 
+.btn-secondary,
+.btn-outline-primary {
+  border: 2px solid var(--cyber-blue) !important;
+  color: var(--cyber-blue) !important;
+  background: transparent !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 10px 30px;
+}
+
+.btn-secondary:hover,
+.btn-outline-primary:hover {
+  background: var(--cyber-blue) !important;
+  color: var(--cyber-dark) !important;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.btn-outline-secondary {
+  border-color: var(--cyber-blue) !important;
+  color: var(--cyber-blue) !important;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  background: var(--cyber-blue) !important;
+  color: var(--cyber-dark) !important;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.btn-danger {
+  background: var(--cyber-pink) !important;
+  border: none !important;
+  box-shadow: 0 0 20px rgba(255, 42, 109, 0.4);
+}
+
+.btn-danger:hover {
+  background: #ff1554 !important;
+  box-shadow: 0 0 30px rgba(255, 42, 109, 0.6);
+}
+
+/* List Groups */
 .list-group {
   margin: auto;
   max-width: 600px;
 }
 
-.bi-eye,
-.bi-eye-slash,
-.bi-arrow-repeat {
-  font-size: 20px;
-  margin-left: 15px;
-  cursor: pointer;
+.list-group-item {
+  background: rgba(26, 31, 58, 0.6) !important;
+  border: 1px solid var(--cyber-border) !important;
+  color: var(--cyber-text) !important;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
-.copy-username-icon,
-.copy-password-icon,
-.copy-url-icon,
-.launch-url-icon {
-  font-size: 20px;
-  margin-left: 15px;
-  cursor: pointer;
+.list-group-item:hover {
+  background: rgba(26, 31, 58, 0.9) !important;
+  border-color: var(--cyber-blue) !important;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+  transform: translateX(5px);
 }
 
-.dropdown-options-icon {
-  font-size: 24px;
+/* Dropdown */
+.dropdown-menu {
+  min-width: 160px;
+  background: rgba(26, 31, 58, 0.98) !important;
+  border: 1px solid var(--cyber-border) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+  z-index: 1050 !important;
+}
+
+.dropdown-tools,
+.dropdown-navbar {
+  position: relative;
+  z-index: auto;
+}
+
+.dropdown-item {
+  color: var(--cyber-text) !important;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(0, 212, 255, 0.2) !important;
+  color: var(--cyber-blue) !important;
+}
+
+.dropdown-divider {
+  border-color: var(--cyber-border) !important;
+}
+
+.dropdown-text {
+  color: var(--cyber-text);
+}
+
+.profile-name {
+  color: var(--cyber-blue);
+}
+
+.profile-email {
+  color: var(--cyber-muted) !important;
 }
 
 .dropdown-options {
@@ -107,26 +415,160 @@
   opacity: 1;
 }
 
+/* Icons */
+.bi-eye,
+.bi-eye-slash,
+.bi-arrow-repeat {
+  font-size: 20px;
+  margin-left: 15px;
+  cursor: pointer;
+  color: var(--cyber-blue);
+  transition: all 0.2s ease;
+}
+
+.bi-eye:hover,
+.bi-eye-slash:hover,
+.bi-arrow-repeat:hover {
+  color: var(--cyber-purple);
+  filter: drop-shadow(0 0 8px var(--cyber-purple));
+}
+
+.copy-username-icon,
+.copy-password-icon,
+.copy-url-icon,
+.launch-url-icon {
+  font-size: 20px;
+  margin-left: 15px;
+  cursor: pointer;
+  color: var(--cyber-green);
+  transition: all 0.2s ease;
+}
+
+.copy-username-icon:hover,
+.copy-password-icon:hover,
+.copy-url-icon:hover,
+.launch-url-icon:hover {
+  color: var(--cyber-blue);
+  filter: drop-shadow(0 0 8px var(--cyber-blue));
+}
+
+.dropdown-options-icon {
+  font-size: 24px;
+}
+
+/* Text Areas */
+.signin-text,
+.signup-text,
+.index-text,
+.add-edit-text,
+.profile-text,
+.generator-text,
+.export-text {
+  text-align: center;
+  margin: auto;
+  max-width: 600px;
+  color: var(--cyber-text) !important;
+  margin-bottom: 20px;
+}
+
+.add-edit-text h1,
+.signin-text h1,
+.signup-text h1,
+.profile-text h1,
+.generator-text h1,
+.export-text h1 {
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Profile page specific */
+.profile-text p,
+.profile-text small {
+  color: var(--cyber-text) !important;
+}
+
+.content {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* Remove any white backgrounds from containers */
+.container,
+.container-fluid {
+  background: transparent !important;
+}
+
+/* Ensure all divs don't have white background */
+div {
+  background-color: transparent;
+}
+
+/* But keep form backgrounds */
+.form-signin,
+.form-signup,
+.form-add,
+.form-profile,
+.form-generator,
+.form-export {
+  background: rgba(26, 31, 58, 0.8) !important;
+}
+
+/* Override Bootstrap default backgrounds */
+.bg-white {
+  background-color: transparent !important;
+}
+
+.bg-light {
+  background-color: transparent !important;
+}
+
+/* Ensure main content area has proper background */
+main > div {
+  background: transparent !important;
+}
+
+/* Card backgrounds */
+.card-body {
+  background: rgba(26, 31, 58, 0.8) !important;
+  color: var(--cyber-text) !important;
+}
+
+/* Error Page */
 .error-page {
   text-align: center;
   vertical-align: middle;
   margin: auto;
   max-width: 600px;
   padding: 20px 20px;
+  color: var(--cyber-text);
 }
 
+/* Generated Password */
 .generated-password {
   text-align: center;
-  color: black;
+  color: var(--cyber-blue);
   font-weight: 600;
   height: 88px;
   resize: none;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  letter-spacing: 2px;
 }
 
+/* Bottom Text */
 .bottom-text {
   text-align: center;
 }
 
+.text-muted {
+  color: var(--cyber-muted) !important;
+}
+
+/* Back to Top Button */
 .top-icon {
   font-size: 44px;
 }
@@ -140,11 +582,108 @@
   border: none;
   outline: none;
   background: transparent;
-  color: #6c757d;
+  color: var(--cyber-blue);
   cursor: pointer;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4));
 }
 
 #topBtn:hover {
   background: transparent;
-  color: #212529;
+  color: var(--cyber-purple);
+  transform: translateY(-5px);
+  filter: drop-shadow(0 0 15px rgba(181, 55, 242, 0.6));
+}
+
+/* Profile Image */
+.profile-img {
+  border: 2px solid var(--cyber-blue);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.profile-img:hover {
+  border-color: var(--cyber-purple);
+  box-shadow: 0 0 20px rgba(181, 55, 242, 0.5);
+}
+
+/* Profile page specific styling */
+.profile-text img {
+  border: 3px solid var(--cyber-blue) !important;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+.profile-text .text-secondary {
+  color: var(--cyber-muted) !important;
+}
+
+/* Ensure profile name is visible */
+.profile-text strong,
+.profile-text b {
+  color: var(--cyber-blue) !important;
+}
+
+/* Card/Container styling */
+.card {
+  background: rgba(26, 31, 58, 0.6) !important;
+  border: 1px solid var(--cyber-border) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+/* Text colors */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--cyber-text) !important;
+}
+
+/* Gradient headings for main titles */
+h1 {
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Section headings */
+h2, h3 {
+  color: var(--cyber-blue) !important;
+  font-weight: 600;
+}
+
+p {
+  color: var(--cyber-text) !important;
+}
+
+small {
+  color: var(--cyber-muted) !important;
+}
+
+a {
+  color: var(--cyber-blue);
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--cyber-purple);
+  text-decoration: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cyber-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-blue);
 }
